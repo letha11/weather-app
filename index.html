@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="title">Weather app</h1>
+      <form @submit="changeCountry">
+        <input
+          type="text"
+          v-model="countryInput"
+          placeholder="Find your location"
+        />
+        <input type="submit" value="Find" />
+      </form>
+
+      <div class="weather-details-container">
+        <div class="bg-day"></div>
+        <div class="weather-details">
+          <div class="main-day-container">
+            <p>{{ this.days[0] }}</p>
+            <p>{{ this.date[0] }} {{ this.month }}</p>
+          </div>
+          <div class="main-weather-details">
+            <h3>{{ this.firstCountryName }}</h3>
+            <div class="main-weather-temp-icon">
+              <h1 class="main-temperature">{{ this.temperature[0] }}°C</h1>
+              <div class="weather-icon-desc">
+                <img :src="`./assets/img/${this.icons[0]}.svg`" alt="" />
+                <p>{{this.weatherDesc[0]}}</p>
+              </div>
+            </div>
+            <div class="wind-speed">
+              <img src="./assets/img/wind.svg" alt="" class="wind-icon" />
+              <p>{{ this.windSpeed }} km/h</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="forecast">
+          <div
+            class="forecast-each"
+            v-for="(temperature, i) in otherTemperature"
+          >
+            <p class="other-day">{{otherDay[i]}}</p>
+            <img :src="`./assets/img/${otherIcons[i]}.svg`" alt="" />
+            <h3>{{temperature}}°C</h3>
+            <p>{{otherWeatherDesc[i]}}</p>
+          </div>
+        </div>
+
+        <!-- <div class="a">
+          <p v-for="day in otherDay">{{day}}</p>
+          <h3 v-for="temperature in otherTemperature">{{temperature}}</h3>
+          <img
+            v-for="icon in otherIcons"
+            :src="`./assets/img/${icon}.svg`"
+            alt=""
+          />
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Script -->
+    <script src="./script.js"></script>
+  </body>
+</html>

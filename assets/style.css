@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@font-face{
+  font-family: Shrimp;
+  src: url('./font/SHRIMP.ttf');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Montserrat',sans-serif;
+  background-color: #1E202B;
+}
+
+#app{
+  width: 90%;
+  display: flex;
+  margin: 50px auto 50px auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+}
+
+.title{
+  font-family: Shrimp, 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  color: white;
+}
+
+form{
+  position: relative;
+  width: 60%;
+  text-align: center;
+  /* background-color: orange; */
+  margin: 50px 0 ;
+}
+
+input[type="text"]{
+  width: 100%;
+  padding: 15px 10px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 1rem;
+}
+
+input[type="submit"]{
+  position:absolute;
+  top: 8px;
+  right: 5px;
+  padding: 8px 25px;
+  background-color: #009AD8;
+  border: none;
+  border-radius: 7px;
+  font-family: 'Montserrat', sans-serif;
+  /* font-size: 13px; */
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"]:focus{
+  outline:none;
+}
+
+.weather-details-container{
+  width: 100%;
+  position: relative;
+  display: flex;
+  /* justify-content: space-between; */
+  align-content: center;
+  color: #A4AABE;
+  /* padding: 10px; */
+  border-radius: 7px;
+  font-weight: 600;
+  background-color: #323544;
+}
+
+.main-weather-details{
+  width: 400px;
+  padding: 15px;
+}
+
+.main-day-container{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: orange; */
+}
+
+.main-weather-temp-icon{
+  display: flex;
+  align-items: center;
+  margin: 0 0 10px 0;
+}
+
+.main-temperature{
+  margin-right: 2vh;
+}
+
+.weather-icon-desc{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* color: white; */
+}
+.weather-icon-desc img{
+  width: 5rem;
+  margin-bottom: 10px;
+}
+.weather-icon-desc p{
+  width: 70%;
+  text-align: center;
+}
+
+
+.main-temperature{
+  color: white;
+  /* font-weight: 700; */
+  font-size: 5rem;
+}
+
+.wind-speed{
+  display: flex;
+  align-items: center;
+}
+
+.wind-speed img{
+  width: 1.5rem;
+  margin-right: 8px;
+}
+
+.forecast{
+  display: flex;
+  width: 100%;
+  background-color: ;
+}
+
+.forecast-each{
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  /* margin-right: 10px; */
+  /* background-color: yellow; */
+
+}
+
+.forecast-each img{
+  width: 3rem;
+  margin: 70px 0 15px 0;
+}
+
+.forecast-each h3{
+  color: white;
+  margin-bottom: 10px;
+}
+
+
+.forecast-each p {
+  /* width: 80%; */
+  text-align: center;
+}
+
+
+.main-day-container p{
+  margin: 0 8px;
+  margin-top: 5px;
+}
+
+.main-day-container p,
+.forecast-each .other-day{
+  z-index: 2;
+}
+
+.forecast-each:nth-child(odd){
+  background-color: #222531;
+}
+.forecast-each:nth-child(odd) p{
+  background-color: #222531;
+}
+
+.forecast-each .other-day{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 5px 0;
+  /* background-color: black; */
+}
+
+
+
+/* .other-day:nth-child(odd){
+  background-color: black;;
+} */
+
+.bg-asd{
+  background-color: black;
+}
+
+.bg-day{
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: #2D303D;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  z-index: 1;
+}
