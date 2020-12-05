@@ -10,14 +10,6 @@ let app = new Vue({
       firstCountries: [],
       lastCountries: [],
       countryInput: "",
-      // Current Thing
-      currentCountries: "",
-      currentWeather: "",
-      currentTemperature: "",
-      currentIcon: "",
-      currentDate: "",
-      currentDay: "",
-      currentMonth: "",
       // Coord Country
       countryLon: "",
       countryLat: "",
@@ -52,11 +44,9 @@ let app = new Vue({
             )
             .then((res) => {
               this.lastCountries = res.data;
-              // console.log(this.lastCountries.daily);
               this.daily = this.lastCountries.daily;
               // Calculating wind speed from m/s to km/h
               let kmH = parseInt(this.daily[0].wind_speed);
-              // console.log(kmH);
               this.windSpeed = kmH * (1/1000) * 60 * 60;
               this.windSpeed = this.windSpeed.toFixed(2);
 
@@ -93,7 +83,6 @@ let app = new Vue({
                 "Dec",
               ];
               this.daily.forEach(function (e) {
-                // console.log(e.temp.day);
                 // multiplied by 1000 so that the argument is in milliseconds, not seconds.
                 let a = new Date(e.dt * 1000);
                 let date = a.getDate();
@@ -115,23 +104,7 @@ let app = new Vue({
               this.weatherDesc = weatherDescArr;
               this.icons = iconArr;
               this.temperature = temperatureArr;
-              // Set Current Data
-              let b = new Date(this.lastCountries.current.dt * 1000);
-              let currDay = weeks[b.getDay()];
-              let currDate = b.getDate();
-              let currMonth = months[b.getMonth()];
-              // console.log(currDate);
-              // console.log(this.lastCountries.current);
-              // this.currentCountries = this.lastCountries.timezone;
-              this.currentWeather = this.lastCountries.current.weather[0].main;
-              this.currentIcon = this.lastCountries.current.weather[0].icon;
-              this.currentTemperature = parseInt(
-                this.lastCountries.current.temp
-              );
-              this.currentDay = currDay;
-              this.currentMonth = currMonth;
-              this.currentDate = currDate;
-
+              
               this.countryInput = '';
             })
             .catch((err) => console.log(err));
@@ -159,7 +132,6 @@ let app = new Vue({
           .then((res) => {
             // Default Value from London
             this.lastCountries = res.data;
-            // console.log(this.lastCountries.daily);
             this.daily = this.lastCountries.daily;
 
             // Calculating wind speed from m/s to km/h
@@ -200,7 +172,6 @@ let app = new Vue({
               "Dec",
             ];
             this.daily.forEach(function (e) {
-              // console.log(e.temp.day);
               // multiplied by 1000 so that the argument is in milliseconds, not seconds.
               let a = new Date(e.dt * 1000);
               let date = a.getDate();
@@ -223,20 +194,7 @@ let app = new Vue({
             console.log(this.weatherDesc);
             this.icons = iconArr;
             this.temperature = temperatureArr;
-            // Set Current Data
-            let b = new Date(this.lastCountries.current.dt * 1000);
-            let currDay = weeks[b.getDay()];
-            let currDate = b.getDate();
-            let currMonth = months[b.getMonth()];
-            // console.log(currDate);
-            // console.log(this.lastCountries.current);
-            // this.currentCountries = this.lastCountries.timezone;
-            this.currentWeather = this.lastCountries.current.weather[0].main;
-            this.currentIcon = this.lastCountries.current.weather[0].icon;
-            this.currentTemperature = parseInt(this.lastCountries.current.temp);
-            this.currentDay = currDay;
-            this.currentMonth = currMonth;
-            this.currentDate = currDate;
+           
           })
           .catch((err) => console.log(err));
       })
@@ -255,13 +213,5 @@ let app = new Vue({
     otherWeatherDesc(){
       return this.weatherDesc.filter((item, i) => i > 0);
     }
-    // iconSrc() {
-    //   let iconSrc = [];
-    //   [...this.icons].forEach((icon) => {
-    //     iconSrc.push(require(`./assets/img/${icon}.svg`));
-    //     console.log(iconSrc);
-    //   });
-    //   return iconSrc;
-    // },
   },
 })
