@@ -191,7 +191,6 @@ let app = new Vue({
             this.date = dateArr;
             this.weather = weatherArr;
             this.weatherDesc = weatherDescArr;
-            console.log(this.weatherDesc);
             this.icons = iconArr;
             this.temperature = temperatureArr;
            
