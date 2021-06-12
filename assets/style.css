@@ -16,9 +16,11 @@ body{
 }
 
 #app{
-  width: 90%;
+  width: 90vw;
+  height: 80vh;
   display: flex;
   margin: 50px auto 50px auto;
+  /* margin: auto; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -139,7 +141,7 @@ input[type="submit"]:focus{
 .forecast{
   display: flex;
   width: 100%;
-  background-color: ;
+  /* background-color: ; */
 }
 
 .forecast-each{
@@ -214,4 +216,8 @@ input[type="submit"]:focus{
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   z-index: 1;
+}
+
+.footer p {
+  font-weight: bold;
 }
